@@ -32,8 +32,10 @@ body {
     max-width: 60px;
     background-color: transparent;
     margin-top: 8px;
+    margin-left: 10px;
 
 }
+
 .navlist li {
     display: inline-block; list-style: none; padding-left: 15px;
 }
@@ -59,6 +61,24 @@ body {
     font-size: small;
     font-weight: 600;
     color: #F8F7F4;
+}
+
+.fullheader{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color: #F8F7F4;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top: 20px;
+    background-image: url('/static/images/grass.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+.badge{
+    width: 10%;
+    margin-top: 20px;
 }
 @media (max-width: 60rem) {
     .navbar {
@@ -88,5 +108,8 @@ body {
         border-radius: 20px; width: 60px; height: 30px; padding: 0; 
         font-size:10px;
         font-weight: 400;
+    }
+    .fullheader{
+        font-size: 20px;
     }
 }

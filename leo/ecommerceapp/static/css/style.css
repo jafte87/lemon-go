@@ -77,9 +77,75 @@ body {
     height: 400px;
 }
 .badge{
-    width: 10%;
+    width: 15%;
     margin-top: 20px;
 }
+
+.newsbox{
+    display: flex;
+    gap: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    width: 70%;
+    margin-left: 25%;
+}
+.update{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    margin: 7% 0 3% 25%;
+}
+.sbox{
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px;
+    border-radius: 3px;
+    background-color: #ff1f1f;
+    height: 400px;
+    width: 100%;
+    transition:all 1.1s ease;
+    cursor: pointer;
+    
+}
+.sbox:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 15px ;
+}
+.sbox p{
+    margin: 6px 3px 0 10px;
+}
+
+.minibox{
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px;
+    border-radius: 3px;
+    background-color: #ff1f1f;
+    height: 195px;
+    width: 50%;
+    transition:all 1.1s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.minibox:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 15px ;
+}
+.minibox p{
+    margin: 6px 3px 0 10px;
+}
+
+.trible{
+    width:100%;
+    margin-bottom: 10px;
+}
+.rank{
+    width:100%;
+}
+.wonder{
+    width:100%;
+}
+
+
 @media (max-width: 60rem) {
     .navbar {
     height: 55px;
@@ -110,6 +176,32 @@ body {
         font-weight: 400;
     }
     .fullheader{
+        padding-top: 50px;
         font-size: 20px;
+        height: 350px;
+    }
+    .newsbox{
+        display:contents;
+        font-size: 15px;
+        
+    
+    }
+    .sbox{
+    width: 70%;
+    margin: 0 0 0 15%;
+    height: 350px;
+    margin-bottom: 15px;
+        
+    }
+    .minibox{
+    width: 70%;
+    margin: 0 0 0 15%;
+    height: 300px;
+    margin-bottom: 15px;
+    
+    }
+    .update{
+        font-size: 25px;
+        margin-left: 15%;
     }
 }

@@ -111,7 +111,7 @@ body {
     box-shadow: 2px 2px 15px ;
 }
 .sbox p{
-    margin: 6px 3px 0 10px;
+    margin: 1% 1% 0 3%;
 }
 
 .minibox{
@@ -120,7 +120,7 @@ body {
     border-width: 2px;
     border-radius: 3px;
     background-color: #ff1f1f;
-    height: 195px;
+    height: 49%;
     width: 50%;
     transition:all 1.1s ease;
     cursor: pointer;
@@ -131,7 +131,7 @@ body {
     box-shadow: 2px 2px 15px ;
 }
 .minibox p{
-    margin: 6px 3px 0 10px;
+    margin: 2% 1% 0 3%;
 }
 
 .trible{
@@ -145,16 +145,20 @@ body {
     width:100%;
 }
 
-.reference-sec{
+.reference-sec {
     display: flex;
-    margin: 10% 0 0 22%;
-    gap: 8%;
-    width: 70%;
-    
+    margin: 10% 0 0 25%;
+    gap: 12%;
+    width: 50%;
 }
 
-.reference-img{
-    width: 70%;
+.reference-sec a {
+    display: inline-flex;  /* أو inline-block */
+    line-height: 0;        /* يلغي المسافة الزائدة تحت الصورة */
+}
+
+.reference-img {
+    width: 100%;
     border-style: solid;
     border-color: #000000;
     border-width: 2px;
@@ -165,6 +169,20 @@ body {
 .reference-img:hover{
     transform: scale(1.05);
     box-shadow: 2px 2px 15px ;
+}
+.end-box {
+    height: 120px;
+    border: 2px solid black;
+    background-color: black;
+    margin-top: 20%;
+    color: #F8F7F4;    
+    text-align: center;
+}
+.end-box p, h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 180%;
+    
+    margin-top: 1%;
 }
 @media (max-width: 60rem) {
     .navbar {
@@ -201,25 +219,43 @@ body {
         height: 350px;
     }
     .newsbox{
-        display:contents;
+        display: flex;
+        flex-direction: column;  /* يرصهم فوق بعض */
+        align-items: center;     /* يظبطهم في المنتصف */
+        width: 100%;
+        margin: 0;
+        gap: 0;
         font-size: 15px;
         
     
     }
     .sbox{
     width: 70%;
-    margin: 0 0 0 15%;
-    height: 350px;
-    margin-bottom: 15px;
+    border: 2px solid black;
+    height: 40%;
+    margin-bottom: 55px;
         
     }
+    .sbox p {
+        margin-bottom: 30%;
+        font-size: 20px;
+    }
+    .minibox p {
+        margin-bottom: 30%;
+        font-size: 20px;
+    }
+
     .minibox{
     width: 70%;
     margin: 0 0 0 15%;
-    height: 300px;
-    margin-bottom: 15px;
-    
+    margin-bottom: 12%;
     }
+
+    .reference-sec {
+        width: 70%;
+        margin-left: 15%;
+    }
+
     .update{
         font-size: 25px;
         margin-left: 15%;

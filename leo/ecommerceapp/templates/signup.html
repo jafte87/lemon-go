@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create account- Lideraly Fc</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/la.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+<body>
+    <img class="head-badge" src="/static/images/la.png">
+    <header  class="sign-head">
+
+        <img class="don" src="/static/images/don.png">
+        
+        <div class="auth-container">
+        <h4>Create new account</h4>
+        
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Username</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="help-text">Not needed as well</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Password</label>
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password1.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="help-text">Not needed too</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Confirm your password</label>
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.password2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="help-text">Not needed</div>
+            </div>
+            
+            <button type="submit" class="btn-submit">Create Account</button>
+            
+            <a class="btn-submit" href="/">Skip</a>
+        </form>
+        
+        <div class="auth-link">
+            Already have an account?<a href="{% url 'signin' %}">Sign in</a>
+        </div>
+    </div>
+    </header>
+    
+</body>
+</html>

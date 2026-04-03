@@ -1,0 +1,81 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Liderally Fc Official</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/la.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <nav class = 'navbar'>
+      <div class="navcont">
+        
+        <a href="/" class="logo">
+        <img src="static\images\la.png">
+      
+        </a>
+
+        <ul class="navlist">
+          <li><a href="/store">Store</a></li>
+          <li><a href="/players">Players</a></li>
+          <li><a href="/aboutus">About Us</a></li>
+        </ul>
+
+        <div class="buttons">
+          <a href="signin" class="bt1">LOG IN</a>
+          <a href="signup" class="bt2">SIGN UP</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="cart-container">
+        <h1 class="cart-title">Cart</h1>
+        
+        
+        {% if cart_items %}
+            <div class="cart-header">
+                <div class="item-name">Product</div>
+                <div class="item-price">Price</div>
+                <div class="item-quantity">Amount</div>
+                <div class="item-total">Total</div>
+                <div class="item-remove">Remove</div>
+            </div>
+            
+            {% for item in cart_items %}
+            <div class="cart-item">
+                <div class="item-name">{{ item.product.name }}</div>
+                <div class="item-price">{{ item.product.price }} €</div>
+                <div class="item-quantity">{{ item.quantity }}</div>
+                <div class="item-total">{{ item.subtotal }} €</div>
+                    <a href="{% url 'remove_from_cart' item.product.id %}" 
+                    class="remove-btn">
+                    Remove
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="cart-footer">
+                <div class="total-row">
+                    {{ total }} €
+                </div>
+                <div class="buttons">
+                    <a href="{% url 'store' %}" class="continue-btn">Continue shopping</a>
+                    <button class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        {% else %}
+            <div class="empty-cart">
+                <h2>The Cart is empty</h2>
+                <p>You did not add any product</p>
+                <a href="{% url 'store' %}" class="shop-now">Shop now!</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+

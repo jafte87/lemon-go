@@ -1,11 +1,11 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Liderally Fc Official</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/la.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   
@@ -24,57 +24,42 @@
           <li><a href="/players">Players</a></li>
           <li><a href="/aboutus">About Us</a></li>
         </ul>
-
+    
         <div class="buttons">
-          <a href="#" class="bt1">LOG IN</a>
-          <a href="#" class="bt2">SIGN UP</a>
+          <a href="signin" class="bt1">LOG IN</a>
+          <a href="signup" class="bt2">SIGN UP</a>
         </div>
       </div>
     </nav>
+
+    
     <h1 class="sec-name"> Our collection </h1>
+    <div class="cart-icon">
+      <a href="/cart"><img src="static\images\shopping-cart.png"></a>
+    </div>
+        
     <div class="items">
+      {% for product in products %}
       <div class="item-box">
-        <a href=""><img src="static\images\red-card.jpg" class="item-img"></a>
-        <h2>10<img src="\static\images\euro.png"></h2>
-        <a href=""><p>Red card </p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\bag.jpg" class="item-img"></a>
-        <h2>15<img src="\static\images\euro.png"></h2>
-        <a href=""><p>Bag</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\hattrick-ball.jpg" class="item-img"></a>
-        <h2>30<img src="\static\images\euro.png"></h2>
-        <a href=""><p>Hat-trick ball</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\kit1.jpg" class="item-img"></a>
-        <h2>60<img src="\static\images\euro.png"></h2>
-        <a href=""><p>Fecond Kit</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\kit2.jpg" class="item-img"></a>
-        <h2>60<img src="\static\images\euro.png"></h2>
-        <a href=""><p>First Kit</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\amzshirt.jpg" class="item-img"></a>
-        <h2>200<img src="\static\images\euro.png"></h2>
-        <a href=""><p>A signed shirt by Amzinho</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
-      <div class="item-box">
-        <a href=""><img src="static\images\mug.jpg" class="item-img"></a>
-        <h2>10<img src="\static\images\euro.png"></h2>
-        <a href=""><p>Mug</p></a>
-        <button class="add-to-cart">Add to cart</button>
-      </div>
+            {% if product.image %}
+                <a href=""><img src="{{ product.image.url }}" class="item-img"></a>
+            {% else %}
+                <a href=""><img src="{% static 'images/default.jpg' %}" class="item-img"></a>
+            {% endif %}
+            
+            <h2>{{ product.price }}<img src="{% static 'images/euro.png' %}"></h2>
+            <h4>{{ product.name }}</h4>
+            
+            <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+                <button class="add-to-cart">Add to cart</button>
+            </form>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="end-box">
+      <p>LIDERALY FC</p>
+      <p> Are you not entertained? </p>
     </div>
   </body>
 </html>

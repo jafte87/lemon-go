@@ -6,12 +6,12 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name='Product name')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name= 'Price')
-    image = models.ImageField( 
-        upload_to= 'products/',
-        verbose_name = 'product image',
-        null= True,
-        blank=True
-        )
+    image = models.CharField(
+    max_length=100,
+    verbose_name='product image',
+    null=True,
+    blank=True
+    )
     description = models.TextField(verbose_name='Product description', blank=True)
     stock = models.IntegerField(default=0, verbose_name='Available amount')
     created_at = models.DateField(auto_now_add=True, verbose_name='Adding history')

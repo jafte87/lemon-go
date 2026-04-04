@@ -42,7 +42,7 @@
       {% for product in products %}
       <div class="item-box">
             {% if product.image %}
-                <a href=""><img src="{{ product.image.url }}" class="item-img"></a>
+                <a href=""><img src="{% static 'images/products/' %}{{ product.image }}" class="item-img"></a>
             {% else %}
                 <a href=""><img src="{% static 'images/default.jpg' %}" class="item-img"></a>
             {% endif %}

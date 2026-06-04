@@ -14,6 +14,6 @@ https://lideraly-fc.onrender.com
 - Authentication
 
 ## Getting Started
-git clone https://github.com/jafte87/... 
-pip install -r requirements.txt
-python manage.py runserver
+-git clone https://github.com/jafte87/... 
+-pip install -r requirements.txt
+-python manage.py runserver
